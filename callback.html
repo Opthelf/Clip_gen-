@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login complete</title><link rel="stylesheet" href="style.css">
+<meta name="robots" content="noindex"></head>
+<body>
+<h1>Almost done</h1>
+<p>Copy the address below and paste it into the terminal where you started the login.</p>
+<textarea id="u" rows="5" style="width:100%;font:13px monospace" readonly></textarea>
+<p><button id="b">Copy</button> <span id="s" class="muted"></span></p>
+<script>
+  const u = document.getElementById("u");
+  u.value = location.href;
+  document.getElementById("b").onclick = async () => {
+    try { await navigator.clipboard.writeText(location.href); document.getElementById("s").textContent = "Copied."; }
+    catch { u.select(); document.getElementById("s").textContent = "Press Cmd+C to copy."; }
+  };
+</script>
+</body></html>
